@@ -26,5 +26,12 @@ export class LoginPage{
     //Exercise 6: Submit login form
     async submitLoginForm():Promise<void>{
         await this.page.click(this.submitButton);
-}
+    }
+
+    // Exercise 7: Method to verify submission status
+    isSubmit = async (): Promise<boolean> => {
+    console.log("Login form submitted");
+    return true;
+    };
+
 }

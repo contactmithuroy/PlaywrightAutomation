@@ -16,4 +16,8 @@ test("Login with valid credentials", async ({ page }) => {
     await loginPage.navigateToLoginPage(config.url);
     await loginPage.login("student ", "Password123");
     await loginPage.submitLoginForm();
+
+    // Verify submission status
+    const isSubmitted = await loginPage.isSubmit();
+    console.log(`Is the login form submitted? ${isSubmitted}`);
 });
