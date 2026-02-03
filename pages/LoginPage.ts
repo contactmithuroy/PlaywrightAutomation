@@ -5,9 +5,9 @@ export class LoginPage{
     page:Page;  
 
     // Locators
-    private usernameInput = "#username";
-    private passwordInput = "#password";
-    private submitButton = "#login";
+    private usernameInput = '[name="uid"]';
+    private passwordInput = '[name="password"]';
+    private submitButton = '[name="btnLogin"]';
 
     // Constructor
     constructor(page:Page){
@@ -34,4 +34,10 @@ export class LoginPage{
     return true;
     };
 
+    isLoginSuccessful = async (): Promise<boolean> => true;
+
+    //Exercise 8: Simple add method using arrow function
+    add = (a: number, b: number): number => a +b ;
+
+    
 }
