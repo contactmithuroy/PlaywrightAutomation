@@ -6,8 +6,10 @@ test("WebElements  ", async ({ page }) => {
 
 
     //Checkboxes
+
     await page.getByRole('link', { name: 'Checkboxes', exact: true }).click();
     await page.locator('#checkboxes input[type="checkbox"]').first().check();
+    await page.locator('#checkboxes input[type="checkbox"]').last().uncheck();
 
     await page.goto("https://the-internet.herokuapp.com/");
 
@@ -19,13 +21,13 @@ test("WebElements  ", async ({ page }) => {
      await page.goto("https://the-internet.herokuapp.com/");
 
     //Radio Buttons
-    await page.getByText("Radio Buttons").click();
-    await page.locator('input[type="radio"][value="blue"]').check();
+    //await page.getByText("Radio Buttons").click();
+    //await page.locator('input[type="radio"][value="blue"]').check();
 
     //Frames
-    await page.goto("https://iframetester.com/");
-    await page.getByText("Frames").click();
-    await page.getByText("iFrame").click();
-    const frame = page.frameLocator('#mce_0_ifr');
-    await frame.locator('#tinymce').fill('Hello, this is a test message!');
+    await page.goto("https://demo.automationtesting.in/Frames.html");
+
+    const frame = page.frameLocator('#singleframe');
+    await frame.locator('input[type="text"]').waitFor();
+    await frame.locator('input[type="text"]').fill('Hello, this is a test message!');
 });
